@@ -25,4 +25,17 @@ const getMenu = async (req, res) => {
   }
 };
 
-module.exports = { getRestaurants, getMenu };
+const getFilteredRestaurants = async (req, res) => {
+  const { dish } = req.query;
+  try {
+    const filteredRestaurants = await services.getRestaurantsByDish(dish);
+    if (!filteredRestaurants) {
+      res.status(404).send("no restaurants for dish");
+    }
+    res.json(filteredRestaurants).status(200);
+  } catch (err) {
+    res.send(err.message).status(500);
+  }
+};
+
+module.exports = { getRestaurants, getMenu, getFilteredRestaurants };

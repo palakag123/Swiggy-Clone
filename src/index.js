@@ -9,6 +9,7 @@ const port = process.env.PORT || 4000;
 const host = process.env.HOST || "localhost";
 
 app.use("/", router);
+
 app.listen(port, host, () => {
   // eslint-disable-next-line no-console
   console.log(`server listening at http://${host}:${port}`);

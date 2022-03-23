@@ -5,4 +5,11 @@ const getRestaurants = async () => {
   return restaurants;
 };
 
-module.exports = { getRestaurants };
+const getMenu = async (restaurantId) => {
+  const dishes = await db.Dishes.findAll({
+    where: { restaurant_id: parseInt(restaurantId, 10) },
+  });
+  return dishes;
+};
+
+module.exports = { getRestaurants, getMenu };

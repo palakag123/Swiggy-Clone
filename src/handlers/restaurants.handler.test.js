@@ -14,7 +14,7 @@ describe('getRestaurants Function', () => {
     jest.spyOn(services, 'getRestaurants').mockResolvedValue([]);
     const res = mockResponse();
     await handlers.getRestaurants('', res);
-    expect(res.status).toHaveBeenCalledWith(404);
+    expect(res.status).toHaveBeenCalledWith(204);
     expect(res.send).toHaveBeenCalledWith('no restaurants');
   });
   it('should send 200 response status if restaurants are returned ', async () => {
@@ -41,7 +41,7 @@ describe('getMenu Function', () => {
     jest.spyOn(services, 'getMenu').mockResolvedValue([]);
     const res = mockResponse();
     await handlers.getMenu({ params: { restaurantId: 1 } }, res);
-    expect(res.status).toHaveBeenCalledWith(404);
+    expect(res.status).toHaveBeenCalledWith(204);
     expect(res.send).toHaveBeenCalledWith('no dishes');
   });
   it('should send 200 response status if restaurants are returned ', async () => {
@@ -68,7 +68,7 @@ describe('getFilteredRestaurants Function', () => {
     jest.spyOn(services, 'getRestaurantsByDish').mockResolvedValue([]);
     const res = mockResponse();
     await handlers.getFilteredRestaurants({ query: { dish: 'Soup' } }, res);
-    expect(res.status).toHaveBeenCalledWith(404);
+    expect(res.status).toHaveBeenCalledWith(204);
     expect(res.send).toHaveBeenCalledWith('no restaurants for dish');
   });
   it('should send 200 response status if restaurants are returned ', async () => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -8,101 +9,101 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-    await queryInterface.bulkInsert('Dishes', [
+     */
+    await queryInterface.bulkInsert("Dishes", [
       {
-        name: 'Veg Sandwich',
-        price: '100',
+        name: "Veg Sandwich",
+        price: "100",
         rating: 5,
-        restaurant_id: 2,
+        restaurant_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Veg Burger',
-        price: '100',
+        name: "Veg Burger",
+        price: "100",
         rating: 5,
-        restaurant_id: 2,
+        restaurant_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Chicken Burger',
-        price: '150',
+        name: "Chicken Burger",
+        price: "150",
         rating: 4,
-        restaurant_id: 2,
+        restaurant_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Soup',
-        price: '1000',
+        name: "Soup",
+        price: "1000",
         rating: 3,
-        restaurant_id: 3,
+        restaurant_id: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Fried rice',
-        price: '900',
+        name: "Fried rice",
+        price: "900",
         rating: 5,
-        restaurant_id: 3,
+        restaurant_id: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Pizza',
-        price: '800',
+        name: "Pizza",
+        price: "800",
         rating: 4,
-        restaurant_id: 3,
+        restaurant_id: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Idly',
-        price: '1000',
+        name: "Idly",
+        price: "1000",
         rating: 1,
-        restaurant_id: 4,
+        restaurant_id: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Dosa',
-        price: '900',
+        name: "Dosa",
+        price: "900",
         rating: 5,
-        restaurant_id: 4,
+        restaurant_id: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Vada',
-        price: '800',
+        name: "Vada",
+        price: "800",
+        rating: 3,
+        restaurant_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Caviar",
+        price: "10000",
         rating: 3,
         restaurant_id: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Caviar',
-        price: '10000',
-        rating: 3,
-        restaurant_id: 5,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        name: 'Lobster',
-        price: '9000',
+        name: "Lobster",
+        price: "9000",
         rating: 2,
-        restaurant_id: 5,
+        restaurant_id: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Barnacle',
-        price: '8000',
+        name: "Barnacle",
+        price: "8000",
         rating: 4,
-        restaurant_id: 5,
+        restaurant_id: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -116,6 +117,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Dishes', null, {});
+    await queryInterface.bulkDelete("Dishes", null, {});
   },
 };

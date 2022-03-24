@@ -1,10 +1,10 @@
-const services = require("../services/restaurants.services");
+const services = require('../services/restaurants.services');
 
 const getRestaurants = async (req, res) => {
   try {
     const restaurants = await services.getRestaurants();
     if (restaurants.length === 0) {
-      res.status(404).send("no restaurants");
+      res.status(404).send('no restaurants');
     }
     res.json(restaurants).status(200);
   } catch (err) {
@@ -17,7 +17,7 @@ const getMenu = async (req, res) => {
   try {
     const menu = await services.getMenu(restaurantId);
     if (menu.length === 0) {
-      res.status(404).send("no dishes");
+      res.status(404).send('no dishes');
     }
     res.json(menu).status(200);
   } catch (err) {
@@ -30,7 +30,7 @@ const getFilteredRestaurants = async (req, res) => {
   try {
     const filteredRestaurants = await services.getRestaurantsByDish(dish);
     if (filteredRestaurants.length === 0) {
-      res.status(404).send("no restaurants for dish");
+      res.status(404).send('no restaurants for dish');
     }
     res.json(filteredRestaurants).status(200);
   } catch (err) {

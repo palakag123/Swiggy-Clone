@@ -1,8 +1,8 @@
-const db = require("../../models");
+const db = require('../../models');
 
 const getRestaurants = async () => {
   const restaurants = await db.Restaurants.findAll({
-    attributes: ["id", "fullName", "costForTwo", "Location"],
+    attributes: ['id', 'fullName', 'costForTwo', 'Location'],
   });
   return restaurants;
 };
@@ -15,7 +15,7 @@ const getMenu = async (restaurantId) => {
     throw new Error('Invalid, Restaurant Id must be integer!');
   }
   const dishes = await db.Dishes.findAll({
-    attributes: ["id", "name", "price", "rating"],
+    attributes: ['id', 'name', 'price', 'rating'],
     where: { restaurant_id: parseInt(restaurantId, 10) },
   });
   return dishes;
@@ -31,7 +31,7 @@ const getRestaurantsByDish = async (dish) => {
   const filteredRestaurants = await db.Dishes.findAll({
     include: {
       model: db.Restaurants,
-      attributes: ["id", "fullName", "costForTwo", "Location"],
+      attributes: ['id', 'fullName', 'costForTwo', 'Location'],
     },
     where: {
       name: dish,

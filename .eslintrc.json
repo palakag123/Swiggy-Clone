@@ -13,7 +13,5 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "quotes": "off",
-        "no-unused-vars": "off"
     }
 }

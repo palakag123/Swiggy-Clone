@@ -1,5 +1,4 @@
 const handlers = require('./restaurants.handler');
-const { Dishes, Restaurants } = require('../../models');
 const services = require('../services/restaurants.services');
 
 const mockResponse = () => {
@@ -70,7 +69,7 @@ describe('getFilteredRestaurants Function', () => {
     const res = mockResponse();
     await handlers.getFilteredRestaurants({ query: { dish: 'Soup' } }, res);
     expect(res.status).toHaveBeenCalledWith(404);
-    expect(res.send).toHaveBeenCalledWith("no restaurants for dish");
+    expect(res.send).toHaveBeenCalledWith('no restaurants for dish');
   });
   it('should send 200 response status if restaurants are returned ', async () => {
     const restaurant = [{

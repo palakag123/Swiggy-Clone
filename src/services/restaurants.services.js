@@ -8,6 +8,12 @@ const getRestaurants = async () => {
 };
 
 const getMenu = async (restaurantId) => {
+  if (!restaurantId) {
+    throw new Error('Invalid, Restaurant Id must be given!');
+  }
+  if (typeof (restaurantId) !== 'number') {
+    throw new Error('Invalid, Restaurant Id must be integer!');
+  }
   const dishes = await db.Dishes.findAll({
     attributes: ["id", "name", "price", "rating"],
     where: { restaurant_id: parseInt(restaurantId, 10) },
@@ -16,11 +22,16 @@ const getMenu = async (restaurantId) => {
 };
 
 const getRestaurantsByDish = async (dish) => {
+  if (!dish) {
+    throw new Error('Invalid, Dish name must be given!');
+  }
+  if (typeof (dish) !== 'string') {
+    throw new Error('Invalid, Dish name must be a string!');
+  }
   const filteredRestaurants = await db.Dishes.findAll({
     include: {
       model: db.Restaurants,
       attributes: ["id", "fullName", "costForTwo", "Location"],
-      // where: { id: db.Dishes.restaurant_id },
     },
     where: {
       name: dish,
@@ -28,8 +39,7 @@ const getRestaurantsByDish = async (dish) => {
   });
 
   const restaurantList = filteredRestaurants.map(
-    // eslint-disable-next-line comma-dangle
-    (restaurant) => restaurant.Restaurant
+    (restaurant) => restaurant.Restaurant,
   );
   return restaurantList;
 };
